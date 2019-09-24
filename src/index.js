@@ -29,11 +29,11 @@ if (document.readyState !== "loading") {
 
 var playBoard; // Will be an array containing all the moves players has made
 
-const one = "O";
+const one = "o";
 
-const two = "X";
+const two = "x";
 
-var Player = "X";
+var Player = "x";
 
 // Matrix containing all the ways game can be won
 
@@ -61,14 +61,14 @@ function startGame() {
   playBoard = Array.from(Array(25).keys());
 
   for (var i = 0; i < ttt.length; i++) {
-    ttt[i].innerText = "#";
+    ttt[i].innerText = "";
 
     ttt[i].addEventListener("click", clickCell, false);
   }
 }
 // Function containing to actions for cell clikcs
 function clickCell(cells) {
-  if (document.getElementById(cells.target.id).innerText === "#") {
+  if (document.getElementById(cells.target.id).innerText === "") {
     if (Player === one) {
       Player = two;
     } else if (Player === two) {
@@ -96,7 +96,7 @@ function gameOver(player) {
       }
 
       if (win === 5) {
-        alert("Player " + player + " won the game!");
+        alert("Player " + player + " won!");
         startGame();
       }
     }
