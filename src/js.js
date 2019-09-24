@@ -13,7 +13,7 @@ const ttt = document.querySelectorAll(".ttt");
 
 // This is straight from course material, checks that document is loaded before any game functions are called
 
-/*if (document.readyState !== "loading") {
+if (document.readyState !== "loading") {
   // Document ready, executing
   console.log("Document ready, executing");
   initializeCode();
@@ -24,7 +24,7 @@ const ttt = document.querySelectorAll(".ttt");
     initializeCode();
   });
 }
-*/
+
 // Other variables and constants
 
 var playBoard; // Will be an array containing all the moves players has made
@@ -52,10 +52,10 @@ const winner = [
   [4, 8, 12, 16, 20]
 ];
 
-//function initializeCode() {
-startGame();
-replayFunction();
-//}
+function initializeCode() {
+  startGame();
+  replayFunction();
+}
 // This function will start the game, makes playBoard array for moves and then initializes click action to every cell
 function startGame() {
   playBoard = Array.from(Array(25).keys());
