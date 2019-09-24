@@ -7,7 +7,11 @@ https://www.youtube.com/watch?v=P2TcQ3h0ipQ
 
 import "./styles.css";
 
+// const ttt contains cells of table board
+
 const ttt = document.querySelectorAll(".ttt");
+
+// This is straight from course material, checks that document is loaded before any game functions are called
 
 if (document.readyState !== "loading") {
   // Document ready, executing
@@ -21,13 +25,17 @@ if (document.readyState !== "loading") {
   });
 }
 
-var playBoard;
+// Other variables and constants
+
+var playBoard; // Will be an array containing all the moves players has made
 
 const one = "O";
 
 const two = "X";
 
 var Player = "X";
+
+// Matrix containing all the ways game can be won
 
 const winner = [
   [0, 1, 2, 3, 4],
@@ -48,7 +56,7 @@ function initializeCode() {
   startGame();
   replayFunction();
 }
-
+// This function will start the game, makes playBoard array for moves and then initializes click action to every cell
 function startGame() {
   playBoard = Array.from(Array(25).keys());
 
@@ -58,7 +66,7 @@ function startGame() {
     ttt[i].addEventListener("click", clickCell, false);
   }
 }
-
+// Function containing to actions for cell clikcs
 function clickCell(cells) {
   if (document.getElementById(cells.target.id).innerText === "#") {
     if (Player === one) {
@@ -70,13 +78,13 @@ function clickCell(cells) {
     turn(cells.target.id, Player);
   }
 }
-
+// Trun function wich marks the players moves on array and checks if player has won after a move with gameOver function
 function turn(cellsId, player) {
   playBoard[cellsId] = player;
   document.getElementById(cellsId).innerText = player;
   gameOver(player);
 }
-
+// This function will check if player has won
 function gameOver(player) {
   var win = 0;
 
@@ -94,7 +102,7 @@ function gameOver(player) {
     }
   }
 }
-
+// Action for replay button, starts the game from the start
 function replayFunction() {
   document.getElementById("replay").addEventListener("click", startGame, false);
 }
