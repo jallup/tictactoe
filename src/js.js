@@ -104,5 +104,5 @@ function gameOver(player) {
 }
 // Action for replay button, starts the game from the start
 function replayFunction() {
-  document.getElementById("replay").addEventListener("click", startGame, false);
+  document.getElementById("replay_button").addEventListener("click", startGame, false);
 }
