@@ -95,7 +95,12 @@ function gameOver(player) {
       }
 
       if (win === 5) {
-        alert("Player " + player + " won!");
+        if (player === "o") {
+          alert("Player 2 won!");
+        } else {
+          alert("Player 1 won!");
+        }
+
         startGame();
       }
     }
