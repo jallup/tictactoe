@@ -9,8 +9,6 @@ https://www.youtube.com/watch?v=P2TcQ3h0ipQ
 
 // const ttt contains cells of table board
 
-const ttt = document.querySelectorAll(".ttt");
-
 // This is straight from course material, checks that document is loaded before any game functions are called
 
 if (document.readyState !== "loading") {
@@ -53,14 +51,14 @@ const winner = [
 ];
 
 function initializeCode() {
-  document.getElementById("head").innerText = "test";
   startGame();
   replayFunction();
 }
 // This function will start the game, makes playBoard array for moves and then initializes click action to every cell
 function startGame() {
+  const ttt = document.querySelectorAll(".ttt");
   playBoard = Array.from(Array(25).keys());
-
+  document.getElementById("head").innerText = "test";
   for (var i = 0; i < ttt.length; i++) {
     ttt[i].innerText = "#";
 
