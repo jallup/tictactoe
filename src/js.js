@@ -9,6 +9,8 @@ https://www.youtube.com/watch?v=P2TcQ3h0ipQ
 
 // const ttt contains cells of table board
 
+alert("Executing");
+
 const ttt = document.querySelectorAll(".ttt");
 
 // This is straight from course material, checks that document is loaded before any game functions are called
