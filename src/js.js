@@ -5,7 +5,7 @@ https://www.youtube.com/watch?v=P2TcQ3h0ipQ
 
 */
 
-import "./styles.css";
+//import "./styles.css";
 
 // const ttt contains cells of table board
 
@@ -104,5 +104,7 @@ function gameOver(player) {
 }
 // Action for replay button, starts the game from the start
 function replayFunction() {
-  document.getElementById("replay_button").addEventListener("click", startGame, false);
+  document
+    .getElementById("replay_button")
+    .addEventListener("click", startGame, false);
 }
