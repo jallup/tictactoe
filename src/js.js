@@ -58,7 +58,7 @@ function initializeCode() {
 function startGame() {
   const ttt = document.querySelectorAll(".ttt");
   playBoard = Array.from(Array(25).keys());
-  document.getElementById("head").innerText = "test";
+
   for (var i = 0; i < ttt.length; i++) {
     ttt[i].innerText = "";
 
