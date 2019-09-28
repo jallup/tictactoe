@@ -63,14 +63,14 @@ function startGame() {
   playBoard = Array.from(Array(25).keys());
 
   for (var i = 0; i < ttt.length; i++) {
-    ttt[i].innerText = "";
+    ttt[i].innerText = "#";
 
     ttt[i].addEventListener("click", clickCell, false);
   }
 }
 // Function containing to actions for cell clikcs
 function clickCell(cells) {
-  if (document.getElementById(cells.target.id).innerText === "") {
+  if (document.getElementById(cells.target.id).innerText === "#") {
     if (Player === one) {
       Player = two;
     } else if (Player === two) {
