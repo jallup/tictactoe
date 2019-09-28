@@ -9,8 +9,6 @@ https://www.youtube.com/watch?v=P2TcQ3h0ipQ
 
 // const ttt contains cells of table board
 
-document.getElementById("head").innerText = "test";
-
 const ttt = document.querySelectorAll(".ttt");
 
 // This is straight from course material, checks that document is loaded before any game functions are called
@@ -55,6 +53,7 @@ const winner = [
 ];
 
 function initializeCode() {
+  document.getElementById("head").innerText = "test";
   startGame();
   replayFunction();
 }
