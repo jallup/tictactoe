@@ -9,7 +9,7 @@ https://www.youtube.com/watch?v=P2TcQ3h0ipQ
 
 // const ttt contains cells of table board
 
-alert("Executing");
+document.getElementById("head").innerText = "test";
 
 const ttt = document.querySelectorAll(".ttt");
 
