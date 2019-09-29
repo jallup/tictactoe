@@ -6,7 +6,6 @@ table {
   table-layout: fixed;
   border: 1px solid black;
   border-collapse: collapse;
-  width: 306px;
 }
 
 td {
@@ -14,6 +13,7 @@ td {
   background-color: white;
   border: 1px solid black;
   font-size: 30px;
+  width: 60px;
   color: solid black;
   height: 60px;
 }
