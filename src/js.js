@@ -5,7 +5,7 @@ https://www.youtube.com/watch?v=P2TcQ3h0ipQ
 
 */
 
-//import "./styles.css";
+import "./styles.css";
 
 // const ttt contains cells of table board
 
@@ -50,6 +50,8 @@ const winner = [
   [4, 8, 12, 16, 20]
 ];
 
+var width = 0;
+
 function initializeCode() {
   startGame();
   replayFunction();
@@ -58,10 +60,11 @@ function initializeCode() {
 function startGame() {
   const ttt = document.querySelectorAll(".ttt");
   playBoard = Array.from(Array(25).keys());
+  width = 0;
 
   for (var i = 0; i < ttt.length; i++) {
     ttt[i].innerText = "";
-
+    ttt[i].style.backgroundColor = "#FFFFFF";
     ttt[i].addEventListener("click", clickCell, false);
   }
 }
@@ -73,7 +76,7 @@ function clickCell(cells) {
     } else if (Player === two) {
       Player = one;
     }
-
+    move();
     turn(cells.target.id, Player);
   }
 }
@@ -81,6 +84,13 @@ function clickCell(cells) {
 function turn(cellsId, player) {
   playBoard[cellsId] = player;
   document.getElementById(cellsId).innerText = player;
+  //document.getElementById(cellsId).setAttribute('background-color', 'RGB code 124, 252, 0');
+  if (player === "x") {
+    document.getElementById(cellsId).style.backgroundColor = "rgb(124,252,0)";
+  } else if (player === "o") {
+    document.getElementById(cellsId).style.backgroundColor =
+      "rgb(250, 128, 114)";
+  }
   gameOver(player);
 }
 // This function will check if player has won
@@ -111,4 +121,23 @@ function replayFunction() {
   document
     .getElementById("replay_button")
     .addEventListener("click", startGame, false);
+}
+
+function move() {
+  var elem = document.getElementById("myBar");
+  if (width < 100) {
+    width += 4;
+    elem.style.width = width + "%";
+    elem.innerHTML = width * 1 + "%";
+  }
+}
+
+function timer(cells, player) {
+  if (player === "x") {
+    player = "o";
+  } else {
+    player = player;
+  }
+  alert("Timeout!!");
+  turn(cells.target.id, Player);
 }
