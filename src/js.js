@@ -31,7 +31,11 @@ const one = "o";
 
 const two = "x";
 
-var Player = "o";
+var player;
+
+var timeOutVar;
+
+var gO;
 
 // Matrix containing all the ways game can be won
 
@@ -58,6 +62,11 @@ function initializeCode() {
 }
 // This function will start the game, makes playBoard array for moves and then initializes click action to every cell
 function startGame() {
+  clearTimeout(timeOutVar);
+  timeOutVar = setTimeout(returner, 10000);
+
+  player = "x";
+
   const ttt = document.querySelectorAll(".ttt");
   playBoard = Array.from(Array(25).keys());
   width = 0;
@@ -67,22 +76,33 @@ function startGame() {
     ttt[i].style.backgroundColor = "#FFFFFF";
     ttt[i].addEventListener("click", clickCell, false);
   }
+  console.log("Player " + player + " starts");
 }
 // Function containing to actions for cell clikcs
 function clickCell(cells) {
   if (document.getElementById(cells.target.id).innerText === "") {
-    if (Player === one) {
-      Player = two;
-    } else if (Player === two) {
-      Player = one;
-    }
     move();
-    turn(cells.target.id, Player);
+    console.log("Player " + player + " made move");
+    clearTimeout(timeOutVar);
+    //timeOutVar = setTimeout(returner, 10000);
+    turn(cells.target.id, player);
+    gO = gameOver(player);
+
+    if (gO === 1) {
+      startGame();
+    } else {
+      if (player === one) {
+        player = two;
+      } else if (player === two) {
+        player = one;
+      }
+    }
   }
 }
 // Trun function wich marks the players moves on array and checks if player has won after a move with gameOver function
 function turn(cellsId, player) {
   playBoard[cellsId] = player;
+
   document.getElementById(cellsId).innerText = player;
   //document.getElementById(cellsId).setAttribute('background-color', 'RGB code 124, 252, 0');
   if (player === "x") {
@@ -91,7 +111,8 @@ function turn(cellsId, player) {
     document.getElementById(cellsId).style.backgroundColor =
       "rgb(250, 128, 114)";
   }
-  gameOver(player);
+
+  timeOutVar = setTimeout(returner, 10000);
 }
 // This function will check if player has won
 function gameOver(player) {
@@ -103,16 +124,20 @@ function gameOver(player) {
       if (playBoard[winner[i][j]] === player) {
         win++;
       }
+    }
 
-      if (win === 5) {
-        if (player === "o") {
-          alert("Player 2 won!");
-        } else {
-          alert("Player 1 won!");
-        }
-
-        startGame();
+    if (win === 5) {
+      if (player === "o") {
+        //alert("Player 2 won!");
+        console.log("Player 2 won!");
+      } else {
+        //alert("Player 1 won!");
+        console.log("Player 1 won!");
       }
+
+      return 1;
+    } else {
+      return 0;
     }
   }
 }
@@ -132,12 +157,14 @@ function move() {
   }
 }
 
-function timer(cells, player) {
+function returner() {
+  clearTimeout(timeOutVar);
   if (player === "x") {
     player = "o";
-  } else {
-    player = player;
+  } else if (player === "o") {
+    player = "x";
   }
-  alert("Timeout!!");
-  turn(cells.target.id, Player);
+  console.log("Time out, player " + player + " turn");
+
+  timeOutVar = setTimeout(returner, 10000);
 }
