@@ -67,7 +67,7 @@ function startGame() {
 
   player = "x";
 
-  const ttt = document.querySelectorAll(".ttt");
+  const ttt = document.querySelectorAll(".box");
   playBoard = Array.from(Array(25).keys());
   width = 0;
 
@@ -86,6 +86,7 @@ function clickCell(cells) {
     clearTimeout(timeOutVar);
     //timeOutVar = setTimeout(returner, 10000);
     turn(cells.target.id, player);
+    console.log(playBoard);
     gO = gameOver(player);
 
     if (gO === 1) {
@@ -120,12 +121,13 @@ function gameOver(player) {
 
   for (var i = 0; i < 12; i++) {
     win = 0;
+    console.log("round ", 1);
     for (var j = 0; j < 5; j++) {
       if (playBoard[winner[i][j]] === player) {
         win++;
       }
     }
-
+    console.log(win);
     if (win === 5) {
       if (player === "o") {
         //alert("Player 2 won!");
@@ -134,9 +136,10 @@ function gameOver(player) {
         //alert("Player 1 won!");
         console.log("Player 1 won!");
       }
-
       return 1;
-    } else {
+    }
+
+    if (i === 12) {
       return 0;
     }
   }
