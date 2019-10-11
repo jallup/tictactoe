@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <script src="./src/js.js"></script>
 
-<head>
-	<title>Parcel Sandbox</title>
-	<meta charset="UTF-8" />
-	<script src="./src/js.js"></script> 
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
-	<!-- Compiled and minified CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
 
-	<!-- Compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-	
- 
-	
-</head>
-
-<body>
-	<h1 id="head">Tic Tac Toe</h1>
-	<div class="w3-light-grey">
+  <body>
+    <h1 id="head">Tic Tac Toe</h1>
+    <!--<div class="w3-light-grey">
 		<div id="myBar" class="w3-container w3-green"></div>
-	</div> 
+	</div>-->
 
-	<div class="container z-depth-5">
-		<div id="board">
-		
-	<!--
+    <div class="progress">
+      <div class="determinate" id="myBar"></div>
+    </div>
+
+    <div class="container z-depth-5">
+      <div id="board">
+        <!--
 		<table class="fixed" id="playboard">
 		<tr>
 			<td class="box b col s2.4 valign" id="0" > </td>
@@ -65,52 +66,50 @@
 		</tr>
 		</table> -->
 
-			<div class="row">
-				<div class="box b col s2.4 valign" id=0></div>
-				<div class="box b col s2.4 valign" id=1></div>
-				<div class="box b col s2.4 valign" id=2></div>
-				<div class="box b col s2.4 valign" id=3></div>
-				<div class="box b col s2.4 valign" id=4></div>
-			</div>
-			
-			<div class="row">
-				<div class="box b col s2.4 valign" id=5></div>
-				<div class="box b col s2.4 valign" id=6></div>
-				<div class="box b col s2.4 valign" id=7></div>
-				<div class="box b col s2.4 valign" id=8></div>
-				<div class="box b col s2.4 valign" id=9></div>
-			</div>
-			
-			<div class="row">
-				<div class="box b col s2.4 valign" id=10></div>
-				<div class="box b col s2.4 valign" id=11></div>
-				<div class="box b col s2.4 valign" id=12></div>
-				<div class="box b col s2.4 valign" id=13></div>
-				<div class="box b col s2.4 valign" id=14></div>
-			</div>
-			
-			<div class="row">
-				<div class="box b col s2.4 valign" id=15></div>
-				<div class="box b col s2.4 valign" id=16></div>
-				<div class="box b col s2.4 valign" id=17></div>
-				<div class="box b col s2.4 valign" id=18></div>
-				<div class="box b col s2.4 valign" id=19></div>
-			</div>
-			
-			<div class="row">
-				<div class="box b col s2.4 valign" id=20></div>
-				<div class="box b col s2.4 valign" id=21></div>
-				<div class="box b col s2.4 valign" id=22></div>
-				<div class="box b col s2.4 valign" id=23></div>
-				<div class="box b col s2.4 valign" id=24></div>
-			</div>
-		</div>
-</div>
+        <div class="row">
+          <div class="box b col s2.4 valign" id="0"></div>
+          <div class="box b col s2.4 valign" id="1"></div>
+          <div class="box b col s2.4 valign" id="2"></div>
+          <div class="box b col s2.4 valign" id="3"></div>
+          <div class="box b col s2.4 valign" id="4"></div>
+        </div>
 
-	<div id="replay">
-		<button id="replay_button">Replay</button>
-	</div>
-	
-</body>
+        <div class="row">
+          <div class="box b col s2.4 valign" id="5"></div>
+          <div class="box b col s2.4 valign" id="6"></div>
+          <div class="box b col s2.4 valign" id="7"></div>
+          <div class="box b col s2.4 valign" id="8"></div>
+          <div class="box b col s2.4 valign" id="9"></div>
+        </div>
 
+        <div class="row">
+          <div class="box b col s2.4 valign" id="10"></div>
+          <div class="box b col s2.4 valign" id="11"></div>
+          <div class="box b col s2.4 valign" id="12"></div>
+          <div class="box b col s2.4 valign" id="13"></div>
+          <div class="box b col s2.4 valign" id="14"></div>
+        </div>
+
+        <div class="row">
+          <div class="box b col s2.4 valign" id="15"></div>
+          <div class="box b col s2.4 valign" id="16"></div>
+          <div class="box b col s2.4 valign" id="17"></div>
+          <div class="box b col s2.4 valign" id="18"></div>
+          <div class="box b col s2.4 valign" id="19"></div>
+        </div>
+
+        <div class="row">
+          <div class="box b col s2.4 valign" id="20"></div>
+          <div class="box b col s2.4 valign" id="21"></div>
+          <div class="box b col s2.4 valign" id="22"></div>
+          <div class="box b col s2.4 valign" id="23"></div>
+          <div class="box b col s2.4 valign" id="24"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="replay">
+      <button id="replay_button">Replay</button>
+    </div>
+  </body>
 </html>

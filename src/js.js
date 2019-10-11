@@ -86,7 +86,7 @@ function clickCell(cells) {
     clearTimeout(timeOutVar);
     //timeOutVar = setTimeout(returner, 10000);
     turn(cells.target.id, player);
-    console.log(playBoard);
+
     gO = gameOver(player);
 
     if (gO === 1) {
@@ -121,7 +121,7 @@ function gameOver(player) {
 
   for (var i = 0; i < 12; i++) {
     win = 0;
-    console.log("round ", 1);
+
     for (var j = 0; j < 5; j++) {
       if (playBoard[winner[i][j]] === player) {
         win++;
@@ -130,10 +130,10 @@ function gameOver(player) {
     console.log(win);
     if (win === 5) {
       if (player === "o") {
-        //alert("Player 2 won!");
+        alert("Player 2 won!");
         console.log("Player 2 won!");
       } else {
-        //alert("Player 1 won!");
+        alert("Player 1 won!");
         console.log("Player 1 won!");
       }
       return 1;
