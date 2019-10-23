@@ -1,14 +1,10 @@
 {
-  "scripts": {
-    "start": "./node_modules/parcel-bundler/bin/cli.js index.html --port 8080",
-    "build": "parcel build index.html"
-  },
   "name": "tic-tac-toe",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html --open",
+    "start": "./node_modules/parcel-bundler/bin/cli.js index.html --port 8080",
     "build": "parcel build index.html"
   },
   "dependencies": {},
