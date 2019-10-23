@@ -10,10 +10,6 @@ body {
   background-color: #304ffe;
 }
 
-.progress .determinate {
-  background-color: red;
-}
-
 .container {
   width: 560px !important;
   height: 560px;
